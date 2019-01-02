@@ -8,8 +8,8 @@
             %h3.chatHeader__roomInfo-roomName
               Sample
             %h5.chatHeader__roomInfo-member
-              Members:
-              %span
+              Members :
+              %span.chatHeader__roomInfo-memberName
                 - @users.each do |user|
                   = user.name
           = link_to "#", class: "chatHeader__editBtn" do
@@ -18,8 +18,8 @@
         .chatBodies
           - @messages.each do |message|
             .chatBody
-              %h4.chatBody__title
-                aaaaaaaa
+              %h4.chatBody__name
+                = current_user.name
                 %span.chatBody__time
                   = DateTime.now.strftime("%Y-%m-%d %H:%M")
               .chatBody__text

@@ -11,11 +11,16 @@
         .sidebarHeader {
           padding-top: 40px;
           display: flex;
-          &__roomName {
-            margin-left: 15px;
-            flex-grow: 10;
+          &__userName {
+            margin: 0 10px 0 20px;
+            flex-grow: 14;
             font-size: 25px;
-            font-family: Comic Sans MS;
+            font-weight: bold;
+            font-family: "Comic Sans MS", "YuKyokasho";
+            overflow: scroll;
+            width: 120px;
+            height: 35px;
+            line-height: 30px;
           }
           &__createRoom {
             color: white;
