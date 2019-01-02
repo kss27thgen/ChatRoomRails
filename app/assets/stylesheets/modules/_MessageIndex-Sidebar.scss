@@ -16,7 +16,6 @@
             flex-grow: 14;
             font-size: 25px;
             font-weight: bold;
-            font-family: "Comic Sans MS", "YuKyokasho";
             overflow: scroll;
             width: 120px;
             height: 35px;
@@ -44,10 +43,10 @@
             overflow: scroll;
             &__roomName {
               font-size: 20px;
-              font-family: Comic Sans MS;
             }
             &__latestMessage {
               margin-top: 5px;
+              font-family: arial;
             }
           }
         }
