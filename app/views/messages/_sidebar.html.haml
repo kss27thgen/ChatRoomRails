@@ -1,0 +1,18 @@
+.messageIndex__sidebar
+  .messageSidebar
+    .messageSidebar__header
+      .sidebarHeader
+        .sidebarHeader__roomName
+          RENA
+        = link_to "#", class: "sidebarHeader__createRoom" do
+          = fa_icon 'edit', class: 'icon fa-lg'
+        = link_to "#", class: "sidebarHeader__editAccount" do
+          = fa_icon 'cog', class: 'icon fa-lg'
+    .messageSidebar__main
+      .chatRooms
+        - @rooms.each do |room|
+          .chatRoom
+            .chatRoom__roomName
+              = room[:name]
+            .chatRoom__latestMessage
+              = room[:message]

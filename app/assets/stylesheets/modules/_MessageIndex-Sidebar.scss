@@ -1,0 +1,52 @@
+.messageIndex {
+  &__sidebar {
+    width: 350px;
+    height: 100vh;
+    background: $back-navy;
+    color: white;
+    overflow: scroll;
+    .messageSidebar {
+      &__header {
+        height: 110px;
+        .sidebarHeader {
+          padding-top: 40px;
+          display: flex;
+          &__roomName {
+            margin-left: 15px;
+            flex-grow: 10;
+            font-size: 25px;
+            font-family: Comic Sans MS;
+          }
+          &__createRoom {
+            color: white;
+            flex-grow: 1;
+          }
+          &__editAccount {
+            color: white;
+            flex-grow: 1;
+          }
+        }
+      }
+      &__main {
+        height: 100vh-14;
+        background: lighten($back-navy, 5%);
+        overflow: scroll;
+        .chatRooms {
+          .chatRoom {
+            padding: 10px 20px;
+            border-bottom: 1px solid $back-navy;
+            height: 100px;
+            overflow: scroll;
+            &__roomName {
+              font-size: 20px;
+              font-family: Comic Sans MS;
+            }
+            &__latestMessage {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
