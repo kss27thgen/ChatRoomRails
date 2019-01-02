@@ -12,9 +12,9 @@
           = fa_icon 'cog', class: 'icon fa-lg'
     .messageSidebar__main
       .chatRooms
-        - @rooms.each do |room|
+        - @groups.each do |group|
           .chatRoom
             .chatRoom__roomName
-              = room[:name]
+              = group.name
             .chatRoom__latestMessage
-              = room[:message]
+              メッセージはまだありません。

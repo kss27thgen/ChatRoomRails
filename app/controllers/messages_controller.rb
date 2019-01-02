@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 
   def index
     @users = User.all
+    @groups = current_user.groups
 
     @messages = [
       "Lorem ipsum dolor sit amet, consectetur. ipsum dolor.",
