@@ -14,9 +14,8 @@
           &__userName {
             margin: 0 10px 0 20px;
             flex-grow: 14;
-            font-size: 25px;
+            font-size: 30px;
             font-weight: bold;
-            font-family: "Comic Sans MS", "YuKyokasho";
             overflow: scroll;
             width: 120px;
             height: 35px;
@@ -38,16 +37,21 @@
         overflow: scroll;
         .chatRooms {
           .chatRoom {
-            padding: 10px 20px;
+            padding: 0 10px;
             border-bottom: 1px solid $back-navy;
-            height: 100px;
-            overflow: scroll;
+            height: 110px;
+            color: white;
+            text-decoration: none;
+            display: block;
             &__roomName {
-              font-size: 20px;
-              font-family: Comic Sans MS;
+              font-size: 18px;
+              margin-top: 13px;
             }
             &__latestMessage {
-              margin-top: 5px;
+              margin-top: 8px;
+              font-family: arial;
+              font-size: 13px;
+              overflow: scroll;
             }
           }
         }
