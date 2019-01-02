@@ -6,13 +6,13 @@
         .chatHeader
           .chatHeader__roomInfo
             %h3.chatHeader__roomInfo-roomName
-              Sample
+              =@group.name
             %h5.chatHeader__roomInfo-member
               Members :
               %span.chatHeader__roomInfo-memberName
-                - @users.each do |user|
+                - @group.users.each do |user|
                   = user.name
-          = link_to "#", class: "chatHeader__editBtn" do
+          = link_to edit_group_path(@group), class: "chatHeader__editBtn" do
             Edit
       %main.chatRoom__main
         .chatBodies

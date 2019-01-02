@@ -2,8 +2,7 @@ class MessagesController < ApplicationController
 
   def index
     @users = User.all
-    @groups = current_user.groups
-
+    @group = Group.find(params[:group_id])
     @messages = [
       "Lorem ipsum dolor sit amet, consectetur. ipsum dolor.",
       "Lorem",
