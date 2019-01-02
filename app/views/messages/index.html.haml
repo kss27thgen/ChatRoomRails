@@ -11,7 +11,7 @@
               Members:
               %span
                 - @users.each do |user|
-                  = user
+                  = user.name
           = link_to "#", class: "chatHeader__editBtn" do
             Edit
       %main.chatRoom__main

@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
 
   def index
-    @users = ["saya", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan", "rena", "ichitan"
-    ]
+    @users = User.all
+
     @messages = [
       "Lorem ipsum dolor sit amet, consectetur. ipsum dolor.",
       "Lorem",

@@ -3,10 +3,12 @@
     .messageSidebar__header
       .sidebarHeader
         .sidebarHeader__roomName
-          RENA
+          = current_user.name
         = link_to "#", class: "sidebarHeader__createRoom" do
           = fa_icon 'edit', class: 'icon fa-lg'
-        = link_to "#", class: "sidebarHeader__editAccount" do
+        = link_to edit_user_registration_path, class: "sidebarHeader__editAccount" do
+          = fa_icon 'cog', class: 'icon fa-lg'
+        = link_to edit_user_path(current_user), class: "sidebarHeader__editAccount" do
           = fa_icon 'cog', class: 'icon fa-lg'
     .messageSidebar__main
       .chatRooms
