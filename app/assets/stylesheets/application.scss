@@ -1,6 +1,8 @@
 // configs
-@import "reset";
-@import "colors";
+@import "config/reset";
+@import "config/colors";
+@import "font-awesome";
 // modules
-@import "MessageIndex";
+@import "modules/MessageIndex-Main";
+@import "modules/MessageIndex-Sidebar";
 
