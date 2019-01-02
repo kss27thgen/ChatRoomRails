@@ -1,0 +1,33 @@
+.messageIndex
+  = render 'sidebar'
+  .messageIndex__chat
+    .chatRoom
+      %header.chatRoom__header
+        .chatHeader
+          .chatHeader__roomInfo
+            %h3.chatHeader__roomInfo-roomName
+              Sample
+            %h5.chatHeader__roomInfo-member
+              Members:
+              %span
+                - @users.each do |user|
+                  = user
+          = link_to "#", class: "chatHeader__editBtn" do
+            Edit
+      %main.chatRoom__main
+        .chatBodies
+          - @messages.each do |message|
+            .chatBody
+              %h4.chatBody__title
+                aaaaaaaa
+                %span.chatBody__time
+                  = DateTime.now.strftime("%Y-%m-%d %H:%M")
+              .chatBody__text
+                = message
+      %footer.chatRoom__footer
+        .formArea
+          = text_field_tag "#", "",class: "formArea__input", placeholder: "type a message"
+          %label
+            = file_field_tag "#", class: "formArea__file"
+            = fa_icon 'picture-o', class: 'icon fa-3x'
+          = submit_tag "Send", class: "formArea__btn"
