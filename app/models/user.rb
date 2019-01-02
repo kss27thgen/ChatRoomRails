@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
 
 
-  enum group: [:モー娘。, :アンジュルム, :JJ, :こぶしファクトリー, :つばきファクトリー, :BEYOOOOONS, :研修生 ]
+  enum hello: [:モー娘。, :アンジュルム, :JJ, :こぶしファクトリー, :つばきファクトリー, :BEYOOOOONS, :研修生 ]
 end
