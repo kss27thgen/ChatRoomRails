@@ -14,7 +14,8 @@
       .chatRooms
         - current_user.groups.each do |group|
           .chatRoom
-            .chatRoom__roomName
-              = group.name
-            .chatRoom__latestMessage
-              メッセージはまだありません。
+            = link_to group_messages_path(group), class: "chatRoom" do
+              .chatRoom__roomName
+                = group.name
+              .chatRoom__latestMessage
+                メッセージはまだありません。
