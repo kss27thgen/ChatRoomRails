@@ -42,11 +42,12 @@
             height: 100px;
             overflow: scroll;
             &__roomName {
-              font-size: 20px;
+              font-size: 18px;
             }
             &__latestMessage {
               margin-top: 5px;
               font-family: arial;
+              font-size: 14px;
             }
           }
         }
