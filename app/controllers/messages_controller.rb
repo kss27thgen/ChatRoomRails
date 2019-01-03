@@ -8,8 +8,9 @@ class MessagesController < ApplicationController
   # パターン２
     # if @group.messages.create(message_params)
   # パターン３(上２つならmessage_paramsに「group_id」のマージ不要)
-    if @message = Message.create(message_params)
-
+    if !GroupUser.exists?(user_id: current_user.id, group_id: params[:group_id])
+      redirect_to group_messages_path(@group), notice: '投稿するにはルームに入りましょう'
+    elsif @message = Message.create(message_params)
       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else
       @messages = @group.messages.includes(:user)
