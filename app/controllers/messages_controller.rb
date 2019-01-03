@@ -25,6 +25,11 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
   end
 
+  def destroy
+    Message.find(params[:id]).destroy
+    redirect_to group_messages_path(@group)
+  end
+
   private
 
   def set_group
