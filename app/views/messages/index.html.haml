@@ -6,7 +6,7 @@
         .chatHeader
           .chatHeader__roomInfo
             %h3.chatHeader__roomInfo-roomName
-              =@group.name
+              = @group.name
             %h5.chatHeader__roomInfo-member
               Members :
               %span.chatHeader__roomInfo-memberName
@@ -20,10 +20,12 @@
             .chatBody
               %h4.chatBody__name
                 = message.user.name
-                %span.chatBody__time
-                  = message.created_at.strftime("%Y-%m-%d %H:%M")
+                / %span.chatBody__belongsTo= "[#{message.user.hello}]"
+                %span.chatBody__time= message.created_at.strftime("%Y-%m-%d %H:%M")
               .chatBody__text
                 = message.text
+              .chatBody__imgage
+                = image_tag message.image.to_s
       %footer.chatRoom__footer
         .formArea
           = form_for [@group, @message] do |f|
