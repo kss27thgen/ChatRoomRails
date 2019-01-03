@@ -2,8 +2,14 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def create
-    @message = @group.messages.new(message_params)
-    if @message.save
+  # パターン１
+    # @message = @group.messages.new(message_params)
+    # if @message.save
+  # パターン２
+    # if @group.messages.create(message_params)
+  # パターン３(上２つならmessage_paramsにgroup_idのマージ不要)
+    if @message = Message.create(message_params)
+
       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else
       @messages = @group.messages.includes(:user)
@@ -25,7 +31,7 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:text, :image).merge(user_id: current_user.id)
+    params.require(:message).permit(:text, :image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
 end
