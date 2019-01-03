@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     # if @message.save
   # パターン２
     # if @group.messages.create(message_params)
-  # パターン３(上２つならmessage_paramsにgroup_idのマージ不要)
+  # パターン３(上２つならmessage_paramsに「group_id」のマージ不要)
     if @message = Message.create(message_params)
 
       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
