@@ -15,20 +15,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @group = Group.find(params[:group_id])
-    @messages = [
-      "Lorem ipsum dolor sit amet, consectetur. ipsum dolor.",
-      "Lorem",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum! ipsum dolor sit amet, consectetur adipisicing elit. Sapiente expedita, iusto!",
-      "Lorem ipsum dolor.",
-      "Lorem ipsum dolor sit amet, consectetur.",
-      "Lorem",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et velit, quas unde amet laborum fugiat recusandae aperiam quidem.",
-      "Lorem ipsum, consectetur adipisicing elit. Quos!",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere itaque ut magni at maiores modi illo quod.",
-      "Lorem ipsum dolor sit amet.",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. -fin-"
-    ]
-
+    @messages = @group.messages.includes(:user)
   end
 
   private
