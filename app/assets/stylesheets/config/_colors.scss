@@ -11,3 +11,10 @@ $light_blue: #38AEF0;
 $light_gray: #999;
 $black: #434a54;
 $alert_orange: #F35500;
+
+// crearfix
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
