@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :messages
 
 
-  enum hello: [:モー娘。, :アンジュルム, :JJ, :こぶしファクトリー, :つばきファクトリー, :BEYOOOOONS, :研修生 ]
+  enum hello: [:娘。, :アンジュルム, :JJ, :こぶしファクトリー, :つばきファクトリー, :BEYOOOOONS, :研修生 ]
 end

@@ -67,8 +67,10 @@ body {
           font-weight: bold;
           color: $text-gray;
         }
+        &__belongsTo {
+          font-size: 11px;
+        }
         &__time {
-          margin-left: 5px;
           font-size: 12px;
           font-weight: normal;
           font-family: MS PGothic;
