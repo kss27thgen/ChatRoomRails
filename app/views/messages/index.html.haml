@@ -26,8 +26,15 @@
                 = message
       %footer.chatRoom__footer
         .formArea
-          = text_field_tag "#", "",class: "formArea__input", placeholder: "type a message"
-          %label
-            = file_field_tag "#", class: "formArea__file"
-            = fa_icon 'picture-o', class: 'icon fa-3x'
-          = submit_tag "Send", class: "formArea__btn"
+          = form_for [@group, @message] do |f|
+            = f.text_field :text, class: 'formArea__input', placeholder: 'type a message'
+            = f.label :image do
+              = fa_icon 'picture-o', class: 'icon fa-3x'
+              = f.file_field :image, class: 'formArea__file'
+            = f.submit 'Send', class: 'formArea__btn'
+
+            / = text_field_tag "#", "",class: "formArea__input", placeholder: "type a message"
+            / %label
+            /   = file_field_tag "#", class: "formArea__file"
+            /   = fa_icon 'picture-o', class: 'icon fa-3x'
+            / = submit_tag "Send", class: "formArea__btn"
