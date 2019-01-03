@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     if !GroupUser.exists?(user_id: current_user.id, group_id: params[:group_id])
       redirect_to group_messages_path(@group), notice: '投稿するにはルームに入りましょう'
     elsif @message = Message.create(message_params)
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      redirect_to group_messages_path(@group)
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = "メッセージを入力してください"
