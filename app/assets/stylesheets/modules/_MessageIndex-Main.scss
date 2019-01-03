@@ -5,7 +5,7 @@ body {
 .messageIndex {
   width: 100vw;
   display: flex;
-  background: lighten($back-gray, 3%);
+  background: lighten($back-gray, 2%);
   &__chat {
     width: 1440px - 350;
     height: 100vh;
@@ -14,7 +14,7 @@ body {
 .chatRoom {
   &__header {
     height: 110px;
-    background: white;
+    background: lighten($back-gray, 5%);
     position: fixed;
     width: 100%;
     .chatHeader {
@@ -83,7 +83,7 @@ body {
   }
   &__footer {
     height: 110px;
-    background: $back-gray;
+    background: darken($back-gray, 5%);
     position: fixed;
     top: 700px;
     width: 100%;
