@@ -16,19 +16,7 @@
             Edit
       %main.chatRoom__main
         .chatBodies
-          - @messages.each do |message|
-            .chatBody
-              %h4.chatBody__name
-                = message.user.name
-                %span.chatBody__belongsTo= "[#{message.user.hello}]"
-                %span.chatBody__time= message.created_at.strftime("%Y-%m-%d %H:%M")
-                %span.chatBody__delete
-                  = link_to group_message_path(@group, message), method: :delete do
-                    x
-              .chatBody__text
-                = message.text
-              .chatBody__imgage
-                = image_tag message.image.to_s
+          = render @messages
       %footer.chatRoom__footer
         .formArea
           = form_for [@group, @message] do |f|
