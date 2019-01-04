@@ -1,31 +1,43 @@
 class MessagesController < ApplicationController
+  before_action :set_group
+
+  def create
+  # パターン１
+    # @message = @group.messages.new(message_params)
+    # if @message.save
+  # パターン２
+    # if @group.messages.create(message_params)
+  # パターン３(上２つならmessage_paramsに「group_id」のマージ不要)
+    if !GroupUser.exists?(user_id: current_user.id, group_id: params[:group_id])
+      redirect_to group_messages_path(@group), notice: '投稿するにはルームに入りましょう'
+    elsif @message = Message.create(message_params)
+      redirect_to group_messages_path(@group)
+    else
+      @messages = @group.messages.includes(:user)
+      flash.now[:alert] = "メッセージを入力してください"
+      render :index
+    end
+  end
 
   def index
-    @users = User.all
+    @message = Message.new
     @group = Group.find(params[:group_id])
-    @messages = [
-      "Lorem ipsum dolor sit amet, consectetur. ipsum dolor.",
-      "Lorem",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum! ipsum dolor sit amet, consectetur adipisicing elit. Sapiente expedita, iusto!",
-      "Lorem ipsum dolor.",
-      "Lorem ipsum dolor sit amet, consectetur.",
-      "Lorem",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et velit, quas unde amet laborum fugiat recusandae aperiam quidem.",
-      "Lorem ipsum, consectetur adipisicing elit. Quos!",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere itaque ut magni at maiores modi illo quod.",
-      "Lorem ipsum dolor sit amet.",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. -fin-"
-    ]
-    @rooms = [
-      {name:"room1", message: "Lorem ipsum dolor sit amet"},
-      {name:"room2", message: "Lorem"},
-      {name:"room3", message: "Lorem ipsum dolor"},
-      {name:"room4", message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et velit, quas unde amet laborum fugiat recusandae aperiam quidem."},
-      {name:"room5", message: "Lorem ipsum dolor"},
-      {name:"room6", message: "Lorem ipsum dolor sit amet, consectetur."},
-      {name:"room7", message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, veniam, facilis! Aut accusamus eos excepturi rerum sit, eveniet ducimus quod. ipsum dolor sit amet, consectetur adipisicing elit. Neque quasi quia hic, illum facere itaque ut magni at maiores modi illo quod."},
-      {name:"room8", message: "Lorem ipsum dolor sit -fin-"}
-    ]
+    @messages = @group.messages.includes(:user)
+  end
+
+  def destroy
+    Message.find(params[:id]).destroy
+    redirect_to group_messages_path(@group)
+  end
+
+  private
+
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
+
+  def message_params
+    params.require(:message).permit(:text, :image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
 end

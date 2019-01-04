@@ -6,7 +6,7 @@
         .chatHeader
           .chatHeader__roomInfo
             %h3.chatHeader__roomInfo-roomName
-              =@group.name
+              = @group.name
             %h5.chatHeader__roomInfo-member
               Members :
               %span.chatHeader__roomInfo-memberName
@@ -16,18 +16,19 @@
             Edit
       %main.chatRoom__main
         .chatBodies
-          - @messages.each do |message|
-            .chatBody
-              %h4.chatBody__name
-                = current_user.name
-                %span.chatBody__time
-                  = DateTime.now.strftime("%Y-%m-%d %H:%M")
-              .chatBody__text
-                = message
+          = render @messages
       %footer.chatRoom__footer
         .formArea
-          = text_field_tag "#", "",class: "formArea__input", placeholder: "type a message"
-          %label
-            = file_field_tag "#", class: "formArea__file"
-            = fa_icon 'picture-o', class: 'icon fa-3x'
-          = submit_tag "Send", class: "formArea__btn"
+          = form_for [@group, @message] do |f|
+            = f.text_field :text, class: 'formArea__input', placeholder: 'type a message'
+            = f.label :image do
+              = fa_icon 'picture-o', class: 'icon fa-3x'
+              = f.file_field :image, class: 'formArea__file'
+            = f.submit 'Send', class: 'formArea__btn'
+
+/form_for入れる前の記述
+/ = text_field_tag "#", "",class: "formArea__input", placeholder: "type a message"
+/ %label
+/   = file_field_tag "#", class: "formArea__file"
+/   = fa_icon 'picture-o', class: 'icon fa-3x'
+/ = submit_tag "Send", class: "formArea__btn"

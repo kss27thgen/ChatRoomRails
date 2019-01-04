@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: [:edit, :update, :destroy]
 
   def new
     @group = Group.new
@@ -18,6 +18,14 @@ class GroupsController < ApplicationController
   def update
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: 'グループを編集しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @group.destroy
+      redirect_to root_path, notice: 'グループを削除しました'
     else
       render :edit
     end

@@ -5,7 +5,7 @@ body {
 .messageIndex {
   width: 100vw;
   display: flex;
-  background: lighten($back-gray, 3%);
+  background: lighten($back-gray, 2%);
   &__chat {
     width: 1440px - 350;
     height: 100vh;
@@ -14,7 +14,7 @@ body {
 .chatRoom {
   &__header {
     height: 110px;
-    background: white;
+    background: lighten($back-gray, 5%);
     position: fixed;
     width: 100%;
     .chatHeader {
@@ -58,6 +58,7 @@ body {
     height: 100vh - 12vh;
     overflow: scroll;
     .chatBodies {
+      margin-top: 110px;
       .chatBody {
         padding: 20px 30px 0;
         min-height: 80px;
@@ -66,11 +67,16 @@ body {
           font-weight: bold;
           color: $text-gray;
         }
+        &__belongsTo {
+          font-size: 11px;
+        }
         &__time {
-          margin-left: 5px;
           font-size: 12px;
           font-weight: normal;
           font-family: MS PGothic;
+        }
+        &__delete {
+          font-size: 12px;
         }
         &__text {
           font-size: 16px;
@@ -82,7 +88,7 @@ body {
   }
   &__footer {
     height: 110px;
-    background: $back-gray;
+    background: darken($back-gray, 5%);
     position: fixed;
     top: 700px;
     width: 100%;

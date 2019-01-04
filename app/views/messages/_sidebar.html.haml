@@ -18,4 +18,5 @@
               .chatRoom__roomName
                 = group.name
               .chatRoom__latestMessage
-                メッセージはまだありません。
+                = group.show_last_message
+                / = group.messages.last&.text

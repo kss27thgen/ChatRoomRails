@@ -38,6 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # styling
 gem "font-awesome-rails"
+# assets
+gem 'carrierwave'
+gem 'mini_magick'
 # haml
 gem 'haml-rails'
 gem 'erb2haml'
