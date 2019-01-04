@@ -16,4 +16,5 @@
           .group__name
             = group.name
           .group__message
-            = group.messages.last&.text
+            = group.show_last_message
+            / = group.messages.last&.text

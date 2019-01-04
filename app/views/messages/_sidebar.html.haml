@@ -18,4 +18,5 @@
               .chatRoom__roomName
                 = group.name
               .chatRoom__latestMessage
-                = group.messages.last&.text
+                = group.show_last_message
+                / = group.messages.last&.text
