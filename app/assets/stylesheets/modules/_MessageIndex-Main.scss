@@ -8,7 +8,6 @@ body {
   background: lighten($back-gray, 2%);
   &__chat {
     width: 1440px - 350;
-    height: 100vh;
   }
 }
 .chatRoom {
@@ -20,7 +19,7 @@ body {
     .chatHeader {
       display: flex;
       &__roomInfo {
-          width: 950px;
+          width: 930px;
         &-roomName {
           margin: 10px 0 5px 40px;
           font-size: 45px;
@@ -39,11 +38,23 @@ body {
           }
         }
       }
+      &__topBtn {
+        width: 60px;
+        height: 60px;
+        border: 2px solid $btn-blue;
+        line-height: 70px;
+        margin-top: 25px;
+        text-align: center;
+        color: $btn-blue;
+        border-radius: 50%;
+        font-family: fantasy;
+        cursor: pointer;
+      }
       &__editBtn {
         width: 60px;
         height: 60px;
         border: 2px solid $btn-blue;
-        margin: 25px 40px;
+        margin: 25px 15px;
         line-height: 70px;
         text-align: center;
         text-decoration: none;
@@ -54,9 +65,8 @@ body {
     }
   }
   &__main {
-    min-height: 790px-220;
-    height: 100vh - 12vh;
     overflow: scroll;
+    margin-bottom: 100px;
     .chatBodies {
       margin-top: 110px;
       .chatBody {
@@ -77,6 +87,8 @@ body {
         }
         &__delete {
           font-size: 12px;
+          text-decoration: none;
+          color: $btn-blue;
         }
         &__text {
           font-size: 16px;

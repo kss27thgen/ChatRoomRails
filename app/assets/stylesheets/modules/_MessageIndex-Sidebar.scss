@@ -1,7 +1,7 @@
 .messageIndex {
   &__sidebar {
     width: 350px;
-    height: 100vh;
+    min-height: 100vh;
     background: $back-navy;
     color: white;
     overflow: scroll;

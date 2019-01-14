@@ -3,10 +3,10 @@
     = message.user.name
     %span.chatBody__belongsTo= "[#{message.user.hello}]"
     %span.chatBody__time= message.created_at.strftime("%Y-%m-%d %H:%M")
-    %span.chatBody__delete
-      = link_to group_message_path(@group, message), method: :delete do
-        x
+    = link_to group_message_path(@group, message), method: :delete, class: "chatBody__delete" do
+      x
   .chatBody__text
     = message.text
+  .chatBody__image
     = image_tag message.image.url if message.image.present?
     / = image_tag message.image.to_s if message.image.present?

@@ -12,6 +12,8 @@
               %span.chatHeader__roomInfo-memberName
                 - @group.users.each do |user|
                   = user.name
+          .chatHeader__topBtn
+            Jump
           = link_to edit_group_path(@group), class: "chatHeader__editBtn" do
             Edit
       %main.chatRoom__main
@@ -19,7 +21,7 @@
           = render @messages
       %footer.chatRoom__footer
         .formArea
-          = form_for [@group, @message] do |f|
+          = form_for [@group, @message],id: 'new_message' do |f|
             = f.text_field :text, class: 'formArea__input', placeholder: 'type a message'
             = f.label :image do
               = fa_icon 'picture-o', class: 'icon fa-3x'
