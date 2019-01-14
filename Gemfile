@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # styling
 gem "font-awesome-rails"
+# JavaScript
+gem "jquery-rails"
 # assets
 gem 'carrierwave'
 gem 'mini_magick'
