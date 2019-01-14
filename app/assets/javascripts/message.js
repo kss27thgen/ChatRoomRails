@@ -38,6 +38,6 @@ $(document).on('turbolinks:load',()=>{
   });
 
   $('.chatHeader__topBtn').on('click', ()=>{
-    $('html,body').animate({ scrollTop: 0 }, 500);
+    $('html,body').animate({ scrollTop: 2 }, 500);
   });
 });
