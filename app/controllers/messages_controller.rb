@@ -1,24 +1,29 @@
 class MessagesController < ApplicationController
   before_action :set_group, only: [:create, :index, :destroy]
+  # before_action :join_first, only: [:create]
 
   def create
   # パターン１
-    # @message = @group.messages.new(message_params)
-    # if @message.save
+    @message = @group.messages.new(message_params)
+    if @message.save
   # パターン２
     # if @group.messages.create(message_params)
   # パターン３(上２つならmessage_paramsに「group_id」のマージ不要)
-
-    if !GroupUser.exists?(user_id: current_user.id, group_id: params[:group_id])
-      redirect_to group_messages_path(@group), notice: '投稿するにはルームに入りましょう'
-    elsif @message = Message.create(message_params)
-      redirect_to group_messages_path(@group)
+    # if !GroupUser.exists?(user_id: current_user.id, group_id: params[:group_id])
+    #   redirect_to group_messages_path(@group), notice: '投稿するにはルームに入りましょう'
+    # elsif @message = Message.create(message_params)
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
+        format.json
+      end
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = "メッセージを入力してください"
       render :index
     end
   end
+  # TODO グループ外ユーザーの登校禁止
+
 
   def index
     @message = Message.new
@@ -36,6 +41,11 @@ class MessagesController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
   end
+
+  # def join_first
+  #   if !GroupUser.exists?(user_id: current_user.id, group_id: params[:group_id])
+  #     redirect_to group_messages_path(@group), notice: '投稿するにはルームに入りましょう'
+  # end
 
   def message_params
     params.require(:message).permit(:text, :image).merge(user_id: current_user.id, group_id: params[:group_id])
