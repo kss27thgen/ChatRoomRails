@@ -19,7 +19,7 @@ body {
     .chatHeader {
       display: flex;
       &__roomInfo {
-          width: 930px;
+          width: 990px;
         &-roomName {
           margin: 10px 0 5px 40px;
           font-size: 45px;
@@ -38,29 +38,32 @@ body {
           }
         }
       }
-      &__topBtn {
-        width: 60px;
-        height: 60px;
-        border: 2px solid $btn-blue;
-        line-height: 70px;
-        margin-top: 25px;
-        text-align: center;
-        color: $btn-blue;
-        border-radius: 50%;
-        font-family: fantasy;
-        cursor: pointer;
-      }
       &__editBtn {
         width: 60px;
         height: 60px;
         border: 2px solid $btn-blue;
-        margin: 25px 15px;
+        margin: 25px 0;
         line-height: 70px;
         text-align: center;
         text-decoration: none;
         color: $btn-blue;
         border-radius: 50%;
         font-family: fantasy;
+      }
+      &__topBtn {
+        z-index: 2;
+        position: absolute;
+        top: 100vh-22;
+        right: 100vw-73.5;
+        width: 80px;
+        height: 80px;
+        border: 2px solid $btn-blue;
+        line-height: 80px;
+        text-align: center;
+        color: $btn-blue;
+        border-radius: 50%;
+        font-family: fantasy;
+        cursor: pointer;
       }
     }
   }
