@@ -12,10 +12,10 @@
               %span.chatHeader__roomInfo-memberName
                 - @group.users.each do |user|
                   = user.name
-          .chatHeader__topBtn
-            Jump
           = link_to edit_group_path(@group), class: "chatHeader__editBtn" do
             Edit
+          .chatHeader__topBtn
+            Jump
       %main.chatRoom__main
         .chatBodies
           = render @messages

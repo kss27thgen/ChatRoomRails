@@ -1,15 +1,15 @@
 $(document).on('turbolinks:load',()=>{
 
-  function buildHTML(message){
-    const image = message.image? `<img src="${message.image}">` : "";
-    const html = `<div class="chatBody">
+  function buildHtml(message){
+    const image = message.image ? `<img src="${message.image}">` : "";
+    const html = `<div class="chatBody" data-id = "${message.id}">
                   <h4 class="chatBody__name">${message.user_name}<span class="chatBody__belongsTo"> [${message.user_hello}]</span><span class="chatBody__time"> ${message.date}</span><a href="/groups/${message.group_id}/messages/${message.id}" class="chatBody__delete" data-method="delete"> x</a></h4>
                   <div class="chatBody__text">${message.text}</div>
                   <div class="chatBody__image">${image}</div>
                 </div>`
     $('.chatBodies').append(html);
   }
-  function scrollTOP(){
+  function scrollTop(){
     const pos = $('.chatBodies')[0].scrollHeight - 100;
     $('html,body').animate({ scrollTop: pos }, 2000);
   }
@@ -28,20 +28,40 @@ $(document).on('turbolinks:load',()=>{
       processData: false,
       contentType: false
     })
-    .done(function(data){
+    .done(function(message){
       $('#new_message')[0].reset();
-      buildHTML(data);
-      scrollTOP();
+      buildHtml(message);
+      scrollTop();
     })
     .fail(function(){
       alert('エラーですよ');
     })
   });
 
-// 画面上へのスクロール
-  $('.chatHeader__topBtn').on('click', ()=>{
-    $('html,body').animate({ scrollTop: 2 }, 500);
-  });
+// メッセージ自動更新機能
+  let interval = setInterval(function (){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      let message_id = $('.chatBody').last().data('id');
+      $.ajax({
+        url: location.href,
+        type: 'get',
+        data: {latest_id: message_id},
+        dataType: 'json',
+      })
+      .done(function(messages){
+        messages.forEach(function(message){
+          buildHtml(message);
+        })
+        scrollTop();
+      })
+      .fail(function(){
+        alert('自動更新に失敗しましたよ');
+      })
+    }else{
+      clearInterval(interval);
+    }
+  }, 15000)
+
 
 // メッセージ削除
   $('html').on('click', '.chatBody__delete', function(e){
@@ -54,6 +74,11 @@ $(document).on('turbolinks:load',()=>{
       type: 'delete',
       dataType: 'json',
     })
+  });
+
+// 画面上へのスクロール
+  $('.chatHeader__topBtn').on('click', ()=>{
+    $('html,body').animate({ scrollTop: 2 }, 500);
   });
 
 });
