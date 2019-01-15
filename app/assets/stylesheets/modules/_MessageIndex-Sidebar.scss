@@ -2,12 +2,13 @@
   &__sidebar {
     width: 350px;
     min-height: 100vh;
-    background: $back-navy;
+    background: lighten($back-navy, 5%);
     color: white;
     overflow: scroll;
     .messageSidebar {
       &__header {
         height: 110px;
+        background: $back-navy;
         .sidebarHeader {
           padding-top: 40px;
           display: flex;
@@ -33,7 +34,6 @@
       }
       &__main {
         height: 100vh-14;
-        background: lighten($back-navy, 5%);
         overflow: scroll;
         .chatRooms {
           .chatRoom {
