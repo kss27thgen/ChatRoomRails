@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def index
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
 
   end
 
@@ -17,4 +21,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :image, :hello)
   end
 end
-
