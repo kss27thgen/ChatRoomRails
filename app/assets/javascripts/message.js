@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load',()=>{
 
   function buildHtml(message){
-    const image = message.image? `<img src="${message.image}">` : "";
+    const image = message.image ? `<img src="${message.image}">` : "";
     const html = `<div class="chatBody" data-id = "${message.id}">
                   <h4 class="chatBody__name">${message.user_name}<span class="chatBody__belongsTo"> [${message.user_hello}]</span><span class="chatBody__time"> ${message.date}</span><a href="/groups/${message.group_id}/messages/${message.id}" class="chatBody__delete" data-method="delete"> x</a></h4>
                   <div class="chatBody__text">${message.text}</div>
@@ -60,7 +60,7 @@ $(document).on('turbolinks:load',()=>{
     }else{
       clearInterval(interval);
     }
-  }, 10000)
+  }, 15000)
 
 
 // メッセージ削除
