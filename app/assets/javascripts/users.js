@@ -22,7 +22,7 @@ $(document).on('turbolinks:load',()=>{
     $('#chat-group-users').append(html);
   }
 
-// ユーザーインクリメンタルサーチ
+// ユーザーインクリメンタルサーチ  TODOすでにグループのメンバーも検索に引っかかり、グループに加えられるのを解消
   $('#user-search-field').on('keyup', function(){
     let keyword = $(this).val();
     $.ajax({
@@ -53,9 +53,8 @@ $(document).on('turbolinks:load',()=>{
     $(this).parent().hide();
     addUser(user_name, user_id);
   });
-// 削除ボタン押した時
+// 削除ボタン押した時  //TODO ユーザーを追加候補に戻す処理追加できるか？
   $('body').on('click', '.chat-group-user__btn--remove', function(e){
     $(this).parent().remove();
-    // ユーザーを追加候補に戻す処理追加できるか？
   });
 });
