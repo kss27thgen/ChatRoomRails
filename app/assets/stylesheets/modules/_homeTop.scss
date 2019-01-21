@@ -1,5 +1,5 @@
 .homeTop {
-  background: $back-gray;
+  background: #D7EEFF;
   display: flex;
   &__Sidebar {
     height: 100vh;
@@ -16,11 +16,12 @@
         font-weight: bold;
         height: 280px;
         line-height: 280px;
-        background: aqua;
+        background: lighten($side_blue_light, 15%);
         border-radius: 50%;
-        color: darkgray;
-        box-shadow: 5px 5px 11px 0px #e665aa;
-        text-shadow: 2px 2px 7px #e665aa;
+        font-family: Tsukushi A Round Gothic;
+        color: lightgray;
+        box-shadow:2px 1px 10px 0px #e665aa;
+        text-shadow: 2px 2px 3px #e665aa;
         user-select: none;
       }
       &Direction.hidden {
