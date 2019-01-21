@@ -14,17 +14,16 @@
       &Title {
         font-size: 100px;
         font-weight: bold;
-        height: 180px;
-        line-height: 180px;
+        height: 280px;
+        line-height: 280px;
         background: aqua;
         border-radius: 50%;
-        box-shadow: 5px 9px 11px 0px gray;
-        text-shadow: 5px 0px 7px gray;
+        color: darkgray;
+        box-shadow: 5px 5px 11px 0px #e665aa;
+        text-shadow: 2px 2px 7px #e665aa;
         user-select: none;
       }
       &Direction.hidden {
-        margin-top: 50px;
-        font-size: 30px;
         transform: translate(-800px , -500px);
       }
     }
@@ -37,8 +36,11 @@
   left: 0;
   right: 0;
   margin: auto;
+  font-family: Tsukushi A Round Gothic;
   transition-duration: 1s;
   z-index: 2;
   margin-top: 50px;
   font-size: 30px;
+  text-shadow: 2px 1px 5px #e665aa;
+  color: darkgray;
 }
