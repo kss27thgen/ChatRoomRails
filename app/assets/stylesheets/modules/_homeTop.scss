@@ -1,25 +1,47 @@
 .homeTop {
-  background: $back-gray;
-  // min-width: 100vw;
-  // min-height: 100vh;
+  background: #D7EEFF;
   display: flex;
   &__Sidebar {
+    height: 100vh;
+    overflow: scroll;
   }
   &__Main {
-    width: 100%;
-  }
-  &MainWrapper {
-    text-align: center;
-    &Title {
-      font-size: 100px;
-      font-weight: bold;
-      margin: 300px auto 0;
-      width: 800px;
-      background: aqua;
-      border-radius: 50%;
+    flex-basis: 1080px;
+    .homeTopMainWrapper {
+      text-align: center;
+      margin: 250px auto;
+      width: 600px;
+      &Title {
+        font-size: 100px;
+        font-weight: bold;
+        height: 280px;
+        line-height: 280px;
+        background: lighten($side_blue_light, 15%);
+        border-radius: 50%;
+        font-family: Tsukushi A Round Gothic;
+        color: lightgray;
+        box-shadow:2px 1px 10px 0px #e665aa;
+        text-shadow: 2px 2px 3px #e665aa;
+        user-select: none;
+      }
+      &Direction.hidden {
+        transform: translate(-800px , -500px);
+      }
     }
-    &Direction {
-      font-size: 30px;
-    }
   }
+}
+
+.homeTopMainWrapperDirection {
+  position: fixed;
+  top: 140px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-family: Tsukushi A Round Gothic;
+  transition-duration: 1s;
+  z-index: 2;
+  margin-top: 50px;
+  font-size: 30px;
+  text-shadow: 2px 1px 5px #e665aa;
+  color: darkgray;
 }

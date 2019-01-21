@@ -5,7 +5,7 @@ body {
 .messageIndex {
   width: 100vw;
   display: flex;
-  background: lighten($back-gray, 2%);
+  background: lighten($back-gray, 5%);
   &__chat {
     width: 1440px - 350;
   }
@@ -13,7 +13,7 @@ body {
 .chatRoom {
   &__header {
     height: 110px;
-    background: lighten($back-gray, 5%);
+    background: lighten($back-gray, 10%);
     position: fixed;
     width: 100%;
     .chatHeader {
@@ -103,16 +103,17 @@ body {
   }
   &__footer {
     height: 110px;
-    background: darken($back-gray, 5%);
+    background: darken($back-gray, 7%);
     position: fixed;
     top: 100vh-10;
     width: 100%;
     .formArea {
-      padding: 20px 15px;
+      padding: 15px 15px;
       &__input {
-        width: 930px;
+        width: 920px;
         height: 50px;
         font-size: 20px;
+        padding-left: 15px;
         border-radius: 5px;
       }
       &__file {
@@ -120,7 +121,7 @@ body {
       }
       .fa-3x {
         position: absolute;
-        top: 24px;
+        top: 19px;
         right: 500px;
         color: lighten($btn-blue, 10%);
       }
@@ -128,11 +129,11 @@ body {
         width: 90px;
         height: 50px;
         background: $btn-blue;
-        margin-left: 20px;
+        margin-left: 15px;
         color: white;
         border-radius: 10px;
         cursor: pointer;
-        // box-shadow: 1px 3px 1px blue;
+        box-shadow: 2px 2px 1px gray;
         border: none;
       }
     }
