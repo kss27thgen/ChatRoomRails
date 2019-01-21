@@ -1,25 +1,30 @@
 .homeTop {
   background: $back-gray;
-  // min-width: 100vw;
-  // min-height: 100vh;
   display: flex;
   &__Sidebar {
+    height: 100vh;
+    overflow: scroll;
   }
   &__Main {
-    width: 100%;
-  }
-  &MainWrapper {
-    text-align: center;
-    &Title {
-      font-size: 100px;
-      font-weight: bold;
-      margin: 300px auto 0;
-      width: 800px;
-      background: aqua;
-      border-radius: 50%;
-    }
-    &Direction {
-      font-size: 30px;
+    flex-basis: 1080px;
+    .homeTopMainWrapper {
+      text-align: center;
+      margin: 200px auto;
+      width: 600px;
+      &Title {
+        font-size: 100px;
+        font-weight: bold;
+        height: 180px;
+        line-height: 180px;
+        background: aqua;
+        border-radius: 50%;
+        box-shadow: 3px 3px 3px 3px;
+      }
+      &Direction {
+        margin-top: 50px;
+        font-size: 30px;
+        display: none;
+      }
     }
   }
 }
