@@ -9,7 +9,7 @@
     flex-basis: 1080px;
     .homeTopMainWrapper {
       text-align: center;
-      margin: 200px auto;
+      margin: 250px auto;
       width: 600px;
       &Title {
         font-size: 100px;
@@ -18,13 +18,27 @@
         line-height: 180px;
         background: aqua;
         border-radius: 50%;
-        box-shadow: 3px 3px 3px 3px;
+        box-shadow: 5px 9px 11px 0px gray;
+        text-shadow: 5px 0px 7px gray;
+        user-select: none;
       }
-      &Direction {
+      &Direction.hidden {
         margin-top: 50px;
         font-size: 30px;
-        display: none;
+        transform: translate(-800px , -500px);
       }
     }
   }
+}
+
+.homeTopMainWrapperDirection {
+  position: fixed;
+  top: 140px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition-duration: 1s;
+  z-index: 2;
+  margin-top: 50px;
+  font-size: 30px;
 }
