@@ -19,7 +19,7 @@ body {
     .chatHeader {
       display: flex;
       &__roomInfo {
-          width: 990px;
+          width: 920px;
         &-roomName {
           margin: 10px 0 5px 40px;
           font-size: 45px;
@@ -42,7 +42,7 @@ body {
         width: 60px;
         height: 60px;
         border: 2px solid $btn-blue;
-        margin: 25px 0;
+        margin: 22px 7px;
         line-height: 70px;
         text-align: center;
         text-decoration: none;
@@ -63,6 +63,7 @@ body {
         color: $btn-blue;
         border-radius: 50%;
         font-family: fantasy;
+        font-size: 20px;
         cursor: pointer;
       }
     }
