@@ -60,7 +60,7 @@ $(document).on('turbolinks:load',()=>{
     }else{
       clearInterval(interval);
     }
-  }, 15000)
+  }, 20000)
 
 
 // メッセージ削除
