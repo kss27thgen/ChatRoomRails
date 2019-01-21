@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :groups do
     resources :messages, only: [:index, :create, :destroy]
   end
-  root 'groups#index'
+  get 'home/top'
+  root 'home#top'
 end

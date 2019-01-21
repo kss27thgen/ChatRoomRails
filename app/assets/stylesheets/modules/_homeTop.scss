@@ -1,0 +1,25 @@
+.homeTop {
+  background: $back-gray;
+  // min-width: 100vw;
+  // min-height: 100vh;
+  display: flex;
+  &__Sidebar {
+  }
+  &__Main {
+    width: 100%;
+  }
+  &MainWrapper {
+    text-align: center;
+    &Title {
+      font-size: 100px;
+      font-weight: bold;
+      margin: 300px auto 0;
+      width: 800px;
+      background: aqua;
+      border-radius: 50%;
+    }
+    &Direction {
+      font-size: 30px;
+    }
+  }
+}
