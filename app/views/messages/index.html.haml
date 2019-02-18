@@ -14,6 +14,8 @@
                   = user.name
           = link_to edit_group_path(@group), class: "chatHeader__editBtn" do
             Edit
+          = link_to root_path, class: "chatHeader__editBtn" do
+            Home
           .chatHeader__topBtn
             Jump
       %main.chatRoom__main
