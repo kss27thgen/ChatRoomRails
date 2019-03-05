@@ -46,6 +46,10 @@
             &__roomName {
               font-size: 20px;
               margin-top: 13px;
+              height: 30px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
             &__latestMessage {
               margin-top: 8px;

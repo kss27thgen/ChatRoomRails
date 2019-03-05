@@ -12,7 +12,6 @@ body {
 }
 .chatRoom {
   &__header {
-    height: 110px;
     background: lighten($back-gray, 10%);
     position: fixed;
     width: 100%;
@@ -21,10 +20,12 @@ body {
       &__roomInfo {
           width: 920px;
         &-roomName {
-          margin: 10px 0 5px 40px;
+          margin: 10px 25px 5px 40px;
           font-size: 45px;
           font-weight: bold;
           color: navy;
+          overflow: scroll;
+          height: 74px;
         }
         &-member {
           margin-left: 35px;
