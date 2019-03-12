@@ -43,6 +43,7 @@ gem "jquery-rails"
 # assets
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 # haml
 gem 'haml-rails'
 gem 'erb2haml'
